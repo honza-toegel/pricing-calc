@@ -1,0 +1,64 @@
+div.gallery-item {
+    margin-bottom: 15px;;
+  }
+
+/*div.gallery-item {
+    border: 1px solid #ccc;
+  }
+  
+  div.gallery-item:hover {
+    border: 1px solid #777;
+  }*/
+  
+  div.gallery-item img {
+    width: 100%;
+    height: 160px;
+    vertical-align: middle;
+    opacity: 1;
+    transition: opacity .2s ease-out;
+    /*This is correcting the known blink & gaps effect of chrome*/
+    -webkit-transform: translateZ(0);
+    width: calc(100% + .49px);
+  }
+
+  div.gallery-item img:hover {
+      opacity: 0.5;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: left;
+    background: #b1a374 !important;
+    opacity: 0.8;
+    color: #FFF;
+    width: calc(100% + .49px);
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+  
+@media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+}
+  
+@media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+}
+  
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
