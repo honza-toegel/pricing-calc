@@ -1,6 +1,22 @@
 <div class="responsive">
-    <div class="gallery-item" (mouseenter) ="mouseEnter('gallery-item') "  (mouseleave) ="mouseLeave('gallery-item')">
-        <img src={{this.imgUrl}} width="600" height="400" />
-        <div class="desc">{{card.name}}</div>
+    <div class="gallery-item" (mouseenter)="mouseEnter('gallery-item')"
+        (mouseleave)="mouseLeave('gallery-item')">
+        <label class=container>
+            <img src={{this.imgUrl}} class="galery-img" />
+            <div class="desc">{{card.name}}
+                <div class="controlbox">
+                    <label *ngIf="(this.card.controlType==ControlType.CheckBox)" class="container">
+                        <input type="checkbox" (change)="onChange($event)" 
+                        [(ngModel)]="card.controlModel[card.controlName]">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label *ngIf="(this.card.controlType==ControlType.RadioBox)" class="container">
+                        <input type="radio" checked="checked" name="{{card.controlName}}" (change)="onChange($event)" 
+                         [(ngModel)]="card.controlModel[card.controlName]" value="{{card.radioValue}}"  />
+                        <span class="radiomark"></span>
+                    </label>
+                </div>
+            </div>
+        </label>
     </div>
 </div>

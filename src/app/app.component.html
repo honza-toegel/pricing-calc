@@ -5,8 +5,11 @@
   </h1>
 </div>
 <section class="mbr-gallery">
-  <app-card *ngFor="let card of cards" [card]=card>
+  <div>
+  <app-card *ngFor="let card of cards" [card]=card (changeCard)="onChangeCard($event)">
   </app-card>
+  <footer class="price-result-footer">The total price is:{{price}}</footer>
+  </div>
   <div class="clearfix"></div>
 </section>
 

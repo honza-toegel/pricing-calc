@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Input } from '@angular/core';
-import { Card } from '../card';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Card, ControlType } from '../card';
 import { Url } from 'url';
 
 @Component({
@@ -10,8 +9,13 @@ import { Url } from 'url';
 })
 export class CardComponent implements OnInit {
 
+  ControlType = ControlType;
+
   @Input() imgUrl: Url;
   @Input() card: Card;
+
+  @Output()
+  changeCard = new EventEmitter();
 
   constructor() { }
 
@@ -29,6 +33,10 @@ export class CardComponent implements OnInit {
     if (this.card.gifUrl) {
       this.imgUrl = this.card.imgUrl;
     }
+  }
+
+  onChange(event) {
+    this.changeCard.emit(event)
   }
 
 }

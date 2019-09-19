@@ -1,3 +1,131 @@
+
+/**
+                Container for checkbox, radiobox
+**/
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    /*font-size: 22px;*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox - but the functionality will be still present - state/events/..*/
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /**
+    Checbox customization
+  **/
+
+  /* Create a custom checkbox mark*/
+  .checkmark {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    height: 70%;
+    width: 70%;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #D7A155;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 36%;
+    top: 20%;
+    width: 20%;
+    height: 40%;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+/**
+    Radio option customization
+**/
+
+/* Create a custom radio button */
+.radiomark {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    height: 70%;
+    width: 70%;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .radiomark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .radiomark {
+    background-color: #D7A155;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .radiomark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .radiomark:after {
+      top: 33%;
+      left: 33%;
+      width: 35%;
+      height: 35%;
+      border-radius: 50%;
+      background: white;
+  }
+
+  /*
+  --------- Galeriee -----------
+  */
+
 div.gallery-item {
     margin-bottom: 15px;;
   }
@@ -9,14 +137,17 @@ div.gallery-item {
   div.gallery-item:hover {
     border: 1px solid #777;
   }*/
-  
-  div.gallery-item img {
+
+  div.gallery-item img.galery-img {
     width: 100%;
     height: 160px;
+    object-fit: cover;
+    /*height: 100%;*/
+
     vertical-align: middle;
     opacity: 1;
     transition: opacity .2s ease-out;
-    /*This is correcting the known blink & gaps effect of chrome*/
+    /*This is correcting known blink & gaps effect of chrome*/
     -webkit-transform: translateZ(0);
     width: calc(100% + .49px);
   }
@@ -26,12 +157,30 @@ div.gallery-item {
   }
   
   div.desc {
+    position: relative;
     padding: 15px;
     text-align: left;
     background: #b1a374 !important;
     opacity: 0.8;
     color: #FFF;
     width: calc(100% + .49px);
+  }
+
+  div.desc div.controlbox {
+    position: absolute;
+    transform: translateX(-40px);
+    left: 100%;
+    width: 35px;
+    top: 5px;
+    height: 35px;
+}
+
+  div.desc div.controlsbox img {
+      position: absolute;
+      left: 10%;
+      top: 10%;
+      width: 80%;
+      height: 80%;
   }
 
 * {
