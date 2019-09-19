@@ -1,17 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }} demo app!
+    Welcome to Pricing calculator demo app!
   </h1>
 </div>
-<section class="mbr-gallery">
-  <div>
+<div class="mbr-gallery">
   <app-card *ngFor="let card of cards" [card]=card (changeCard)="onChangeCard($event)">
   </app-card>
-  <footer class="price-result-footer">The total price is:{{price}}</footer>
-  </div>
   <div class="clearfix"></div>
-</section>
-
-
+</div>
+<footer class="price-result-footer"><p>You'll pay only {{price | currency:'CHF '}} for your fairy tail wedding. <br>Contact me to find out more !</p></footer>
 <router-outlet></router-outlet>

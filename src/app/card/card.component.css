@@ -1,4 +1,5 @@
 
+
 /**
                 Container for checkbox, radiobox
 **/
@@ -187,12 +188,33 @@ div.gallery-item {
     box-sizing: border-box;
 }
 
+/* Angular component fix to have a real size */
+:host {
+    display: inline-block;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    :host {
+        display: inline-block;
+        width: 49.99999%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    :host {
+      width: 100%;
+    }
+}
+
+
 .responsive {
     padding: 0 6px;
     float: left;
-    width: 24.99999%;
+    width: 100%;
+    /*width: 24.99999%;*/
 }
-  
+/*
 @media only screen and (max-width: 700px) {
     .responsive {
       width: 49.99999%;
@@ -204,7 +226,7 @@ div.gallery-item {
     .responsive {
       width: 100%;
     }
-}
+}*/
   
 .clearfix:after {
     content: "";

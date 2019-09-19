@@ -13,7 +13,8 @@ export class Card {
         public gifUrl: Url = null,
         public controlType: ControlType = null,
         public controlName: String = "",
-        public controlModel = null) 
+        public controlModel = null,
+        public displayWhen: Boolean = true) 
         { }
 }
 
@@ -26,8 +27,9 @@ export class CardRadio extends Card {
         public controlType: ControlType = null,
         public controlName: String = "",
         public controlModel = null,
+        public displayWhen: Boolean = true,
         public radioValue = "") 
         { 
-            super(id,name,imgUrl, gifUrl, controlType, controlName, controlModel) 
+            super(id,name,imgUrl, gifUrl, controlType, controlName, controlModel, displayWhen) 
         }
 }
